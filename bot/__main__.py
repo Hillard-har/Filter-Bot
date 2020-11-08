@@ -57,9 +57,9 @@ def vercheck() -> str:
     return str(VERSION)
 
 
-SOURCE_STRING = """
-☹️*Sorry Broh*
-"""
+#SOURCE_STRING = """
+#☹️*Sorry Broh*
+#"""
 
 
 IMPORTED = {}
