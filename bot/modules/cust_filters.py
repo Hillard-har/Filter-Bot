@@ -162,7 +162,7 @@ def filters(bot: Bot, update: Update):
     sql.add_filter(chat_id, keyword, content, is_sticker, is_document, is_image, is_audio, is_voice, is_video,
                    buttons, media_caption, has_caption)
 
-    msg.reply_text("ғɪʟᴛᴇʀ ᴛᴇxᴛ ' `{}` ' ᴀᴅᴅᴇᴅ ɪɴ 👉 *{}*! \n\n `/stop {}`".format(keyword, chat_name, keyword), parse_mode=telegram.ParseMode.MARKDOWN)
+    msg.reply_text("ғɪʟᴛᴇʀ ᴛᴇxᴛ ' `{}` ' \nᴀᴅᴅᴇᴅ ɪɴ 👉 *{}*. \n\n `/stop {}`".format(keyword, chat_name, keyword), parse_mode=telegram.ParseMode.MARKDOWN)
     raise DispatcherHandlerStop
 
 
@@ -196,10 +196,10 @@ def stop_filter(bot: Bot, update: Update):
     for keyword in chat_filters:
         if keyword == args[1]:
             sql.remove_filter(chat_id, args[1])
-            update.effective_message.reply_text("_Filter Deleted Successfully_ *{}*.".format(chat_name), parse_mode=telegram.ParseMode.MARKDOWN)
+            update.effective_message.reply_text("ғɪʟᴛᴇʀ ᴅᴇʟᴇᴛᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ ғʀᴏᴍ *{}*.".format(chat_name), parse_mode=telegram.ParseMode.MARKDOWN)
             raise DispatcherHandlerStop
 
-    update.effective_message.reply_text("Your Filter Keyword is Incorrect please check Your Keyword /filters")
+    update.effective_message.reply_text("ʏᴏᴜʀ ғɪʟᴛᴇʀ ᴋᴇʏᴡᴏʀᴅ ɪs ɪɴᴄᴏʀʀᴇᴄᴛ ᴘʟᴇᴀsᴇ ᴄʜᴇᴄᴋ ʏᴏᴜʀ ᴋᴇʏᴡᴏʀᴅ /filters")
 
 
 @run_async
