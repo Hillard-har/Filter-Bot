@@ -31,22 +31,27 @@ PM_START_TEXT = """
 
 ᴍʏ ɴᴀᴍᴇ ɪs sᴛᴇᴍ ᴠᴇʀsɪᴏɴ 2.0
 
-ɪ ᴀᴍ ᴛʜᴇ ᴍᴀɴᴀɢᴇʀ ᴏғ [ᴀɴʏʟɪɴᴋ ɢʀᴏᴜᴘ](https://t.me/Anylink_Group) 
+ɪ ᴀᴍ ᴛʜᴇ ғɪʟᴛᴇʀ ʙᴏᴛ ᴏғ [ᴀɴʏʟɪɴᴋ ɢʀᴏᴜᴘ](https://t.me/Anylink_Group) 
 
-ɪ ᴄᴀɴ ᴍᴀɴᴀɢᴇ ᴀ ɢʀᴏᴜᴘ ᴀs ᴘᴇʀ [ᴀᴅᴍɪɴ's](https://t.me/trackstudio_official) ᴡɪsʜ.
+ɪ ᴄᴀɴ ᴄᴀɴ ғɪʟᴛᴇʀ ᴛᴇxᴛ ᴀs ᴘᴇʀ [ᴀᴅᴍɪɴ's](https://t.me/trackstudio_official) ᴡɪsʜ.
 
-🔱 ᴍᴀɪɴᴛᴀɪɴᴇᴅ ʙʏ 👉 [ʜɪʟʟᴀʀᴅ ʜᴀʀ](https://t.me/Hillard_Har)
+⚜️ ᴍᴀɪɴᴛᴀɪɴᴇᴅ ʙʏ 👉 [ʜɪʟʟᴀʀᴅ ʜᴀʀ](https://t.me/Hillard_Har)
 
 """
 
 
 HELP_STRINGS = """
-*Hello My name is* *{}*.
-*Main Available Commands are Below:*
+💡 𝐘𝐨𝐮 𝐍𝐞𝐞𝐝 𝐇𝐞𝐥𝐩 ? 
 
-All of the following commands  / can  be used...
+ʏᴏᴜ ᴄᴀɴ ᴄᴀʟʟ ᴍᴇ ᴀs *{}*.
 
-And the following:
+𝑯𝒆𝒓𝒆 𝒂𝒓𝒆 𝒔𝒐𝒎𝒆 𝒄𝒐𝒎𝒎𝒂𝒏𝒅𝒔 𝒕𝒉𝒂𝒕 𝒎𝒊𝒈𝒉𝒕 𝒉𝒆𝒍𝒑 𝒚𝒐𝒖.. 
+
+⭕ /start - ʏᴏᴜ ᴄᴀɴ ᴄʜᴇᴄᴋ ᴍᴇ ᴀʟɪᴠᴇ ᴏʀ ɴᴏᴛ.
+
+⭕ /help  - ᴘᴍ's ʏᴏᴜ ᴛʜɪs ᴍᴇssᴀɢᴇ.
+
+𝑨𝒏𝒅 𝒕𝒉𝒆𝒔𝒆 𝒂𝒓𝒆 𝒎𝒚 𝒇𝒆𝒂𝒕𝒖𝒓𝒆𝒔👇
 """.format(dispatcher.bot.first_name, "" if not ALLOW_EXCL else "\nAll commands can either be used with / or !.\n")
 
 
