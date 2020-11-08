@@ -27,10 +27,16 @@ from bot.modules.connection import connect_button
 
 
 PM_START_TEXT = """
-*Hello* *{}*
-*My name is* *{}*\n\n`You Can Add any kind of Filters to This Bot!`
+ʜᴇʟʟᴏ, {} 
 
-_Click Help button for more details_
+ᴍʏ ɴᴀᴍᴇ ɪs sᴛᴇᴍ ᴠᴇʀsɪᴏɴ 2.0
+
+ɪ ᴀᴍ ᴛʜᴇ ᴍᴀɴᴀɢᴇʀ ᴏғ [ᴀɴʏʟɪɴᴋ ɢʀᴏᴜᴘ](https://t.me/Anylink_Group) 
+
+ɪ ᴄᴀɴ ᴍᴀɴᴀɢᴇ ᴀ ɢʀᴏᴜᴘ ᴀs ᴘᴇʀ [ᴀᴅᴍɪɴ's](https://t.me/trackstudio_official) ᴡɪsʜ.
+
+🔱 ᴍᴀɪɴᴛᴀɪɴᴇᴅ ʙʏ 👉 [ʜɪʟʟᴀʀᴅ ʜᴀʀ](https://t.me/Hillard_Har)
+
 """
 
 
@@ -560,7 +566,7 @@ def main():
     settings_handler = CommandHandler("settings", get_settings)
     settings_callback_handler = CallbackQueryHandler(settings_button, pattern=r"stngs_")
    
-    source_handler = CommandHandler("source", source)
+    #source_handler = CommandHandler("source", source)
     
     migrate_handler = MessageHandler(Filters.status_update.migrate, migrate_chats)
 
