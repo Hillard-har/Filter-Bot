@@ -57,9 +57,9 @@ def vercheck() -> str:
     return str(VERSION)
 
 
-#SOURCE_STRING = """
-#☹️*Sorry Broh*
-#"""
+SOURCE_STRING = """
+😈 *മോൻ കൊള്ളാലോ വേണേ @stemlime_bot നോട് ചോയ്ക്*
+"""
 
 
 IMPORTED = {}
@@ -566,7 +566,7 @@ def main():
     settings_handler = CommandHandler("settings", get_settings)
     settings_callback_handler = CallbackQueryHandler(settings_button, pattern=r"stngs_")
    
-    #source_handler = CommandHandler("source", source)
+    source_handler = CommandHandler("source", source)
     
     migrate_handler = MessageHandler(Filters.status_update.migrate, migrate_chats)
 
