@@ -32,7 +32,7 @@ def list_handlers(bot: Bot, update: Update):
     if not conn == False:
         chat_id = conn
         chat_name = dispatcher.bot.getChat(conn).title
-        filter_list = "𝐋𝐢𝐬𝐭 𝐨𝐟 𝐚𝐥𝐥 𝐟𝐢𝐥𝐭𝐞𝐫𝐬 𝐢𝐧 {} \n\n".format(chat_name)
+        filter_list = "𝐋𝐢𝐬𝐭 𝐨𝐟 𝐚𝐥𝐥 𝐟𝐢𝐥𝐭𝐞𝐫𝐬 𝐢𝐧 \n\n*{}* \n\n".format(chat_name)
     else:
         chat_id = update.effective_chat.id
         if chat.type == "private":
@@ -50,7 +50,7 @@ def list_handlers(bot: Bot, update: Update):
         return
 
     for keyword in all_handlers:
-        entry = " 👉 `{}`\n\n".format(escape_markdown(keyword))
+        entry = " 👉 `/stop {}`\n\n".format(escape_markdown(keyword))
         if len(entry) + len(filter_list) > telegram.MAX_MESSAGE_LENGTH:
             update.effective_message.reply_text(filter_list, parse_mode=telegram.ParseMode.MARKDOWN)
             filter_list = entry
