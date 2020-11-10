@@ -231,6 +231,7 @@ def help_button(bot: Bot, update: Update):
     prev_match = re.match(r"help_prev\((.+?)\)", query.data)
     next_match = re.match(r"help_next\((.+?)\)", query.data)
     back_match = re.match(r"help_back", query.data)
+    close_match = re.match(r"close_all", query.data)
     try:
         if mod_match:
             module = mod_match.group(1)
@@ -259,6 +260,8 @@ def help_button(bot: Bot, update: Update):
             query.message.reply_text(text=HELP_STRINGS,
                                      parse_mode=ParseMode.MARKDOWN,
                                      reply_markup=InlineKeyboardMarkup(paginate_modules(0, HELPABLE, "help")))
+        elif close_match:
+            query.message.delete()
 
         # ensure no spinny white circle
         bot.answer_callback_query(query.id)
@@ -292,7 +295,7 @@ def get_help(bot: Bot, update: Update):
         module = args[1].lower()
         text = "Here is the available help for the *{}* module:\n".format(HELPABLE[module].__mod_name__) \
                + HELPABLE[module].__help__
-        send_help(chat.id, text, InlineKeyboardMarkup([[InlineKeyboardButton(text="↩️ BACK", callback_data="help_back")]]))
+        send_help(chat.id, text, InlineKeyboardMarkup([[InlineKeyboardButton(text="↩️ CLOSE", callback_data="close_all")]]))
 
     else:
         send_help(chat.id, HELP_STRINGS)
