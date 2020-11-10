@@ -186,7 +186,7 @@ def send_start(bot, update):
     keyboard = [[InlineKeyboardButton(text="💡 HELP",callback_data="help_back"),InlineKeyboardButton(text="⚜️ MASTER",url="https://t.me/Hillard_Har")]]
     keyboard += [[InlineKeyboardButton(text="🔄 CONNECT", callback_data="main_connect"),InlineKeyboardButton(text="🎬 CHANNEL",url="https://t.me/Anylink_Movies")]]
 
-    update.effective_message.reply_photo(img, PM_START_TEXT.format(escape_markdown(first_name), escape_markdown(bot.first_name), OWNER_NAME, OWNER_ID), 
+    update.effective_message.reply_text(PM_START_TEXT.format(escape_markdown(first_name), escape_markdown(bot.first_name), OWNER_NAME, OWNER_ID), 
                                          reply_markup=InlineKeyboardMarkup(keyboard), disable_web_page_preview=True, parse_mode=ParseMode.MARKDOWN)
 
 
