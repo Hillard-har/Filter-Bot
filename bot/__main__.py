@@ -183,7 +183,7 @@ def send_start(bot, update):
     first_name = update.effective_user.first_name 
     text = PM_START_TEXT
 
-    keyboard = [[InlineKeyboardButton(text="💡 HELP",callback_data="help_back"),InlineKeyboardButton(text="⚜️ MASTER",url="https://t.me/Hillard_Har")]]
+    keyboard = [[InlineKeyboardButton(text="💡 HELP",callback_data="close_all"),InlineKeyboardButton(text="⚜️ MASTER",url="https://t.me/Hillard_Har")]]
     keyboard += [[InlineKeyboardButton(text="🔄 CONNECT", callback_data="main_connect"),InlineKeyboardButton(text="🎬 CHANNEL",url="https://t.me/Anylink_Movies")]]
 
     update.effective_message.reply_text(PM_START_TEXT.format(escape_markdown(first_name), escape_markdown(bot.first_name), OWNER_NAME, OWNER_ID), 
@@ -295,7 +295,7 @@ def get_help(bot: Bot, update: Update):
         module = args[1].lower()
         text = "Here is the available help for the *{}* module:\n".format(HELPABLE[module].__mod_name__) \
                + HELPABLE[module].__help__
-        send_help(chat.id, text, InlineKeyboardMarkup([[InlineKeyboardButton(text="↩️ CLOSE", callback_data="close_all")]]))
+        send_help(chat.id, text, InlineKeyboardMarkup([[InlineKeyboardButton(text="↩️ BACK", callback_data="help_match")]]))
 
     else:
         send_help(chat.id, HELP_STRINGS)
