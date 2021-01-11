@@ -36,7 +36,7 @@ def list_handlers(bot: Bot, update: Update):
     else:
         chat_id = update.effective_chat.id
         if chat.type == "private":
-            chat_name = "local filters"
+            chat_name = "ᴘʀɪᴠᴀᴛᴇ ᴄʜᴀᴛ"
             filter_list = "*𝐋𝐨𝐜𝐚𝐥 𝐅𝐢𝐥𝐭𝐞𝐫𝐬 :*\n"
         else:
             chat_name = chat.title
@@ -46,7 +46,7 @@ def list_handlers(bot: Bot, update: Update):
     all_handlers = sql.get_chat_triggers(chat_id)
 
     if not all_handlers:
-        update.effective_message.reply_text("No filters in *{}*!".format(chat_name))
+        update.effective_message.reply_text("ɴᴏ ғɪʟᴛᴇʀs ɪɴ 👉 {} !".format(chat_name))
         return
 
     for keyword in all_handlers:
@@ -76,7 +76,7 @@ def filters(bot: Bot, update: Update):
     else:
         chat_id = update.effective_chat.id
         if chat.type == "private":
-            chat_name = "local filters"
+            chat_name = "ᴘʀɪᴠᴀᴛᴇ ᴄʜᴀᴛ"
         else:
             chat_name = chat.title
 
@@ -150,7 +150,7 @@ def filters(bot: Bot, update: Update):
         has_caption = True
 
     else:
-        msg.reply_text("You didn't specify what to reply with!")
+        msg.reply_text("ʏᴏᴜ ᴅɪᴅɴ'ᴛ sᴘᴇᴄɪғʏ ᴡʜᴀᴛ ᴛᴏ ʀᴇᴘʟʏ ᴡɪᴛʜ!")
         return
 
     # Add the filter
@@ -162,7 +162,7 @@ def filters(bot: Bot, update: Update):
     sql.add_filter(chat_id, keyword, content, is_sticker, is_document, is_image, is_audio, is_voice, is_video,
                    buttons, media_caption, has_caption)
 
-    msg.reply_text("ғɪʟᴛᴇʀ ᴛᴇxᴛ ' `{}` ' \nᴀᴅᴅᴇᴅ ɪɴ 👉 *{}*. \n\n `/stop {}`".format(keyword, chat_name, keyword), parse_mode=telegram.ParseMode.MARKDOWN)
+    msg.reply_text("ғɪʟᴛᴇʀ ᴛᴇxᴛ ' `{}` ' \n\nᴀᴅᴅᴇᴅ ɪɴ 👉 *{}*. \n\n `/stop {}`".format(keyword, chat_name, keyword), parse_mode=telegram.ParseMode.MARKDOWN)
     raise DispatcherHandlerStop
 
 
@@ -190,7 +190,7 @@ def stop_filter(bot: Bot, update: Update):
     chat_filters = sql.get_chat_triggers(chat_id)
 
     if not chat_filters:
-        update.effective_message.reply_text("No filters are active here!")
+        update.effective_message.reply_text("ɴᴏ ᴀᴄᴛɪᴠᴇ ғɪʟᴛᴇʀs ᴀʀᴇ  ʜᴇʀᴇ!")
         return
 
     for keyword in chat_filters:
@@ -283,14 +283,14 @@ def stop_all_filters(bot: Bot, update: Update):
         owner = chat.get_member(user.id)
         chat.title = chat.title	
         if owner.status != 'creator':	
-            message.reply_text("You must be this chat creator.")	
+            message.reply_text("ʏᴏᴜ ᴍᴜsᴛ ʙᴇ ᴛʜɪs ᴄʜᴀᴛ's ᴄʀᴇᴀᴛᴏʀ.")	
             return
 
     x = 0
     flist = sql.get_chat_triggers(chat.id)
 
     if not flist:
-        message.reply_text("There aren't any active filters in {} !".format(chat.title))
+        message.reply_text("ᴛʜᴇʀᴇ ᴀʀᴇɴ'ᴛ ᴀɴʏ ᴀᴄᴛɪᴠᴇ ғɪʟᴛᴇʀs ɪɴ {} !".format(chat.title))
         return
 
     f_flist = []
@@ -301,7 +301,7 @@ def stop_all_filters(bot: Bot, update: Update):
     for fx in f_flist:
         sql.remove_filter(chat.id, fx)
 
-    message.reply_text("{} filters from this chat have been removed.".format(x))
+    message.reply_text("{} ғɪʟᴛᴇʀs ғʀᴏᴍ ᴛʜɪs ᴄʜᴀᴛ ʜᴀᴠᴇ ʙᴇᴇɴ ʀᴇᴍᴏᴠᴇᴅ.".format(x))
 
 
 def __stats__():
@@ -325,6 +325,7 @@ __help__ = """
 is mentioned. If you reply to a sticker with a keyword, the bot will reply with that sticker. NOTE: all filter \
 keywords are in lowercase. If you want your keyword to be a sentence, use quotes. eg: /filter "hey there" How you \
 doin?
+
  • /stop <filter keyword>: stop that filter.
  • /stopall: stop all filters
 
