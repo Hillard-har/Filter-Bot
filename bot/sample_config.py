@@ -36,7 +36,7 @@ class Config(object):
     WORKERS = 8  # Number of subthreads to use. This is the recommended amount - see for yourself what works best!
     ALLOW_EXCL = True  # Allow ! commands as well as /
     
-   
+   UPDATE_CHANNEL = os.environ.get("UPDATE_CHANNEL", "Anylink_Movies")
   
 class Production(Config):
     LOGGER = True
