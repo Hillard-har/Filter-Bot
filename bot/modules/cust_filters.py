@@ -18,6 +18,12 @@ from bot.modules.helper_funcs.string_handling import split_quotes, button_markdo
 from bot.modules.sql import cust_filters_sql as sql
 
 from pyrogram.errors import UserNotParticipant, UserBannedInChannel
+from pyrogram import (
+    Client,
+    Filters,
+    InlineKeyboardMarkup,
+    InlineKeyboardButton
+)
 
 from bot.modules.connection import connected
 
@@ -215,7 +221,7 @@ def reply_filter(bot: Bot, update: Update):
     if message.reply_to_message:
         message = message.reply_to_message
 
-@pyrogram.Client.on_message(Filters.private & (Filters.document | Filters.video | Filters.audio | Filters.voice | Filters.video_note))
+@Client.on_message(Filters.private & (Filters.document | Filters.video | Filters.audio | Filters.voice | Filters.video_note))
 async def rename_cb(bot, update):
 
     #p = await update.reply_text('ᴘʀᴏᴄᴇssɪɴɢ ʀᴇϙᴜᴇsᴛ ᴘʟᴇᴀsᴇ ᴡᴀɪᴛ...😴', True) 
