@@ -29,23 +29,21 @@ from bot.modules.connection import connect_button
 PM_START_TEXT = """
 ʜᴇʟʟᴏ, {} 
 
-ᴍʏ ɴᴀᴍᴇ ɪs sᴛᴇᴍ ᴠᴇʀsɪᴏɴ 2.0
+ᴍʏ ɴᴀᴍᴇ ɪs {}
 
 ɪ ᴀᴍ ᴛʜᴇ ғɪʟᴛᴇʀ ʙᴏᴛ ᴏғ [ᴀɴʏʟɪɴᴋ ɢʀᴏᴜᴘ](https://t.me/Anylink_Group) 
 
-ɪ ᴄᴀɴ ᴄᴀɴ ғɪʟᴛᴇʀ ᴛᴇxᴛ ᴀs ᴘᴇʀ [ᴀᴅᴍɪɴ's](https://t.me/trackstudio_official) ᴡɪsʜ.
+ɪ ᴄᴀɴ ᴄᴀɴ ғɪʟᴛᴇʀ ᴛᴇxᴛ ᴀs ᴘᴇʀ [ᴀᴅᴍɪɴ's](https://t.me/Trackstudio) ᴡɪsʜ.
 
-⚜️ ᴍᴀɪɴᴛᴀɪɴᴇᴅ ʙʏ 👉 [ʜɪʟʟᴀʀᴅ ʜᴀʀ](https://t.me/Hillard_Har)
 
+⚜️ ᴅᴇᴠᴇʟᴏᴘᴇᴅ ʙʏ 👉 [ᴛʀᴀᴄᴋsᴛᴜᴅɪᴏ](https://t.me/trackstudio)
 """
 
 
 HELP_STRINGS = """
 💡 𝐘𝐨𝐮 𝐍𝐞𝐞𝐝 𝐇𝐞𝐥𝐩 ? 
 
-ʏᴏᴜ ᴄᴀɴ ᴄᴀʟʟ ᴍᴇ ᴀs *{}*.
-
-𝑯𝒆𝒓𝒆 𝒂𝒓𝒆 𝒔𝒐𝒎𝒆 𝒄𝒐𝒎𝒎𝒂𝒏𝒅𝒔 𝒕𝒉𝒂𝒕 𝒎𝒊𝒈𝒉𝒕 𝒉𝒆𝒍𝒑 𝒚𝒐𝒖.. 
+ʟɪsᴛ ᴏғ ᴄᴏᴍᴍᴀɴᴅs 
 
 ⭕ /start - ʏᴏᴜ ᴄᴀɴ ᴄʜᴇᴄᴋ ᴍᴇ ᴀʟɪᴠᴇ ᴏʀ ɴᴏᴛ.
 
@@ -183,7 +181,7 @@ def send_start(bot, update):
     first_name = update.effective_user.first_name 
     text = PM_START_TEXT
 
-    keyboard = [[InlineKeyboardButton(text="🎬 CHANNEL",url="https://t.me/Anylink_Movies"),InlineKeyboardButton(text="⚜️ MASTER",url="https://t.me/Hillard_Har")]]
+    keyboard = [[InlineKeyboardButton(text="🔰 GROUP",url="https://t.me/joinchat/Kozk6Bph-2g0C4cCAzy3Ww"),InlineKeyboardButton(text="⚜️ MASTER",url="https://t.me/Happy_0262")]]
     keyboard += [[InlineKeyboardButton(text="🔄 CONNECT", callback_data="main_connect"),InlineKeyboardButton(text="💡 HELP",callback_data="help_back")]]
 
     update.effective_message.reply_text(PM_START_TEXT.format(escape_markdown(first_name), escape_markdown(bot.first_name), OWNER_NAME, OWNER_ID), 
@@ -240,7 +238,7 @@ def help_button(bot: Bot, update: Update):
             query.message.reply_text(text=text,
                                      parse_mode=ParseMode.MARKDOWN,
                                      reply_markup=InlineKeyboardMarkup(
-                                         [[InlineKeyboardButton(text="Back", callback_data="help_back")]]))
+                                         [[InlineKeyboardButton(text="↩️ BACK", callback_data="help_back")]]))
 
         elif prev_match:
             curr_page = int(prev_match.group(1))
@@ -350,7 +348,7 @@ def settings_button(bot: Bot, update: Update):
             query.message.reply_text(text=text,
                                      parse_mode=ParseMode.MARKDOWN,
                                      reply_markup=InlineKeyboardMarkup(
-                                         [[InlineKeyboardButton(text="Back",
+                                         [[InlineKeyboardButton(text="↩️ BACK",
                                                                 callback_data="stngs_back({})".format(chat_id))]]))
 
         elif prev_match:
