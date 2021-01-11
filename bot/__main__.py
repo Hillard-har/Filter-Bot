@@ -181,7 +181,7 @@ def send_start(bot, update):
     first_name = update.effective_user.first_name 
     text = PM_START_TEXT
 
-    keyboard = [[InlineKeyboardButton(text="🔰 GROUP",url="https://t.me/joinchat/Kozk6Bph-2g0C4cCAzy3Ww"),InlineKeyboardButton(text="⚜️ MASTER",url="https://t.me/Happy_0262")]]
+    keyboard = [[InlineKeyboardButton(text="🔰 GROUP",url="https://t.me/Anylink_Group"),InlineKeyboardButton(text="⚜️ MASTER",url="https://t.me/Trackstudio")]]
     keyboard += [[InlineKeyboardButton(text="🔄 CONNECT", callback_data="main_connect"),InlineKeyboardButton(text="💡 HELP",callback_data="help_back")]]
 
     update.effective_message.reply_text(PM_START_TEXT.format(escape_markdown(first_name), escape_markdown(bot.first_name), OWNER_NAME, OWNER_ID), 
