@@ -17,13 +17,6 @@ from bot.modules.helper_funcs.misc import build_keyboard
 from bot.modules.helper_funcs.string_handling import split_quotes, button_markdown_parser
 from bot.modules.sql import cust_filters_sql as sql
 
-from pyrogram.errors import UserNotParticipant, UserBannedInChannel
-from pyrogram import (
-    Client,
-    Filters,
-    InlineKeyboardMarkup,
-    InlineKeyboardButton
-)
 
 from bot.modules.connection import connected
 
@@ -220,32 +213,6 @@ def reply_filter(bot: Bot, update: Update):
 
     if message.reply_to_message:
         message = message.reply_to_message
-
-@Client.on_message(Filters.text & ~Filters.private, group=1)
-async def rename_cb(bot, update):
-
-    #p = await update.reply_text('ᴘʀᴏᴄᴇssɪɴɢ ʀᴇϙᴜᴇsᴛ ᴘʟᴇᴀsᴇ ᴡᴀɪᴛ...😴', True) 
-    update_channel = Config.UPDATE_CHANNEL
-    if update_channel:
-        try:
-            user = await bot.get_chat_member(update_channel, update.chat.id)
-            if user.status == "kicked":
-                #await p.delete() 
-                await p.edit_text("🤭 Sorry Dude, You are **B A N N E D 🤣🤣🤣**",True)
-                return
-        except UserNotParticipant:
-            #await p.delete()
-            await p.edit_text(
-                text="⚠️ 𝐒𝐎𝐑𝐑𝐘 𝐏𝐑𝐎𝐂𝐄𝐒𝐒𝐈𝐍𝐆 𝐂𝐀𝐍𝐂𝐄𝐋𝐋𝐄𝐃 **\n\nʏᴏᴜ ʜᴀᴠᴇ ᴛᴏ ᴊᴏɪɴ ᴛʜᴇ ᴄʜᴀɴɴᴇʟ ᴛᴏ ᴜsᴇ ᴍᴇ.**",
-                reply_markup=InlineKeyboardMarkup([
-                    [ InlineKeyboardButton(text="♥️ 𝙹𝚘𝚒𝚗", url=f"https://t.me/Anylink_Movies")]
-              ]) 
-            )
-            return
-        except Exception:
-            #await p.delete()
-            await p.edit_text("⛔ sᴏᴍᴇᴛʜɪɴɢ ᴡʀᴏɴɢ. ᴄᴏɴᴛᴀᴄᴛ @stemlime_bot")
-            return  
 
     chat_filters = sql.get_chat_triggers(chat.id)
     for keyword in chat_filters:
