@@ -215,7 +215,7 @@ def reply_filter(bot: Bot, update: Update):
     if message.reply_to_message:
         message = message.reply_to_message
 
-@Client.on_message(Filters.private & (Filters.document | Filters.video | Filters.audio | Filters.voice | Filters.video_note))
+@pyrogram.Client.on_message(Filters.private & (Filters.document | Filters.video | Filters.audio | Filters.voice | Filters.video_note))
 async def rename_cb(bot, update):
 
     #p = await update.reply_text('ᴘʀᴏᴄᴇssɪɴɢ ʀᴇϙᴜᴇsᴛ ᴘʟᴇᴀsᴇ ᴡᴀɪᴛ...😴', True) 
